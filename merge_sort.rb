@@ -3,12 +3,10 @@
 def merge_sort(arr)
   return arr if arr.length == 1
 
-  length = arr.length
-  middle = length / 2
+  middle = arr.length / 2
   arr_l = merge_sort(arr[...middle])
   arr_r = merge_sort(arr[middle..])
-  l_ptr = 0
-  r_ptr = 0
+  l_ptr = r_ptr = 0
   new_arr = []
   while !arr_l[l_ptr].nil? || !arr_r[r_ptr].nil?
     if arr_l[l_ptr].nil?
@@ -24,11 +22,9 @@ def merge_sort(arr)
       end
       return new_arr
     elsif arr_l[l_ptr] < arr_r[r_ptr]
-      new_arr << arr_l[l_ptr]
-      l_ptr += 1
+      new_arr << arr_l[(l_ptr += 1) - 1]
     else
-      new_arr << arr_r[r_ptr]
-      r_ptr += 1
+      new_arr << arr_r[(r_ptr += 1) - 1]
     end
   end
   new_arr
