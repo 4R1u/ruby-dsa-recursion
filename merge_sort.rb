@@ -5,10 +5,8 @@ def merge_sort(arr)
 
   length = arr.length
   middle = length / 2
-  puts "Splitting #{arr} into #{arr[...middle]} and #{arr[middle..]}"
   arr_l = merge_sort(arr[...middle])
   arr_r = merge_sort(arr[middle..])
-  puts "Sorted as #{arr_l} and #{arr_r}"
   l_ptr = 0
   r_ptr = 0
   new_arr = []
